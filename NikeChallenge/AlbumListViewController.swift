@@ -8,19 +8,6 @@
 
 import UIKit
 
-// TODO:
-
-// AlbumCell
-// Dynamic cell height
-
-// TDD Tests
-// Unit test
-// UI Test
-
-// Extra Stuff
-// Don't use UILabel
-// Omptimize
-
 class AlbumListViewController: UIViewController {
     
     var tableView = UITableView()
@@ -55,13 +42,13 @@ class AlbumListViewController: UIViewController {
     }
     
     func fetchData() {
-        let albumRequest = AlbumRequest(countryCode: "us", numAlbums: 20)
+        let albumRequest = AlbumRequest()
         albumRequest.getAlbums { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let albums):
-                self?.albums = albums
+                self?.albums.append(contentsOf: albums)
             }
         }
     }

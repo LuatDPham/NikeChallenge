@@ -18,7 +18,7 @@ class AlbumCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubviews(albumImageView, albumTitleLabel, albumArtisLabel)
-        
+        albumImageView.image = UIImage(named: "loading")
         configureViews()
         setUpContraints()
     }

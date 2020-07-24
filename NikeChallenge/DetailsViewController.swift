@@ -71,41 +71,14 @@ class DetailsViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        print((album?.url)!)
-        // Added Url scheme NikeChallengeOpen
-        // Added to plist
-        //             <key>LSApplicationQueriesSchema</key>
-        //        <array>
-        //            <string>NikeChallengeOpen</string>
-        //        </array>
         guard let albumAddress = album?.url.dropFirst(8) else { return }
         var customUrl = String(albumAddress.dropLast(5))
         customUrl = "itms://" + customUrl + "itunes"
         if let url = URL(string: customUrl) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
-                print("\(customUrl) opened")
-            } else {
-                print("App schema not found")
             }
-        } else {
-            print("custom url not found")
         }
-        print("end of button tapped")
-        
-
-//        let customUrlTest = "test://"
-//        if let url = URL(string: customUrlTest) {
-//            if UIApplication.shared.canOpenURL(url) {
-//                UIApplication.shared.open(url)
-//                print("\(url.absoluteString) opened")
-//            } else {
-//                print("Test App schema not found")
-//            }
-//        } else {
-//            print("Test custom url not found")
-//        }
-//        print("end of test button tapped")
         
     }
     
@@ -154,7 +127,7 @@ class DetailsViewController: UIViewController {
             iTunesButton.centerXAnchor.constrain(to: view.centerXAnchor)
             iTunesButton.leadingAnchor.constrain(to: view.leadingAnchor, with: MyDimensions.outerPadding)
             iTunesButton.trailingAnchor.constrain(to: view.trailingAnchor, with: -MyDimensions.outerPadding)
-            iTunesButton.bottomAnchor.constrain(to: view.bottomAnchor, with: -MyDimensions.outerPadding)
+            iTunesButton.bottomAnchor.constrain(to: view.safeAreaLayoutGuide.bottomAnchor, with: -MyDimensions.outerPadding)
         }
         
         setupArtViewContraints()

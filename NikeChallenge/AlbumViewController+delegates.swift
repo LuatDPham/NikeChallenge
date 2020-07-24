@@ -15,10 +15,11 @@ extension AlbumListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.albumCell) as! AlbumCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.albumCell) as? AlbumCell else {
+            return UITableViewCell()
+        }
         let album = albums[indexPath.row]
         cell.configure(album: album, nsImageCache: nsImageCache)
-        
         return cell
     }
     

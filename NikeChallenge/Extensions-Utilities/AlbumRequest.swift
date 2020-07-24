@@ -11,7 +11,7 @@ import Foundation
 struct AlbumRequest {
     let resourceURL: URL
     
-    init(countryCode: String = "us", numAlbums: Int) {
+    init(countryCode: String = "us", numAlbums: Int = 100) {
         let resourceString = "https://rss.itunes.apple.com/api/v1/\(countryCode)/apple-music/top-albums/all/\(numAlbums)/explicit.json"
         guard let resourceURL = URL(string: resourceString) else { fatalError() }
         self.resourceURL = resourceURL
