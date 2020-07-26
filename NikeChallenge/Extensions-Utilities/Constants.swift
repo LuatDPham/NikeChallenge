@@ -19,4 +19,8 @@ struct MyDimensions {
     static let cornerRadius: CGFloat = 10
     static let labelHeight: CGFloat = 20
     static let imageHeight: CGFloat = 120
+    static let largeImageHeight: CGFloat = 440
+    static let heightRatioToView: CGFloat = 3/8
+    static let contentScrollHeight: CGFloat = 800
+    static let contentScollWidth: CGFloat = 400
 }

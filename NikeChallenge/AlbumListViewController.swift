@@ -34,10 +34,10 @@ class AlbumListViewController: UIViewController {
     }
     
     func configureTableView() {
-        view.addSubview(tableView)
         setTableViewDelegates()
         tableView.rowHeight = 140
         tableView.register(AlbumCell.self, forCellReuseIdentifier: Cells.albumCell)
+        view.addSubview(tableView)
         tableView.pin(to: view)
     }
     

@@ -18,7 +18,6 @@ class AlbumCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubviews(albumImageView, albumTitleLabel, albumArtisLabel)
-        albumImageView.image = UIImage(named: "loading")
         configureViews()
         setUpContraints()
     }
@@ -36,11 +35,13 @@ class AlbumCell: UITableViewCell {
         
         func configureTitleLabel() {
             albumTitleLabel.numberOfLines = 0
+            albumTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
             albumTitleLabel.adjustsFontSizeToFitWidth = true
         }
         
         func configureArtisLabel() {
             albumArtisLabel.numberOfLines = 0
+            albumArtisLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
             albumArtisLabel.adjustsFontSizeToFitWidth = true
         }
         
@@ -78,7 +79,9 @@ class AlbumCell: UITableViewCell {
     }
     
     func configure(album: Album, nsImageCache: NSCache<NSString, UIImage>) {
-        albumImageView.loadImage(from: album.artworkUrl100, nsImageCache: nsImageCache)
+        albumImageView.loadImage(from: album.artworkUrl100, nsImageCache: nsImageCache, completionHandler: { image in
+            self.albumImageView.image = image
+        })
         albumTitleLabel.text = album.name
         albumArtisLabel.text = album.artistName
     }

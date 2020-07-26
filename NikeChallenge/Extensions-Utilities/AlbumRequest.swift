@@ -9,6 +9,7 @@
 import Foundation
 
 struct AlbumRequest {
+    
     let resourceURL: URL
     
     init(countryCode: String = "us", numAlbums: Int = 100) {
