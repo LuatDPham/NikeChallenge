@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension AlbumListViewController: UITableViewDelegate, UITableViewDataSource {
+extension AlbumsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums.count
@@ -24,7 +24,7 @@ extension AlbumListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.displayDetails(album: albums[indexPath.row], nsImageCache: nsImageCache)
+        coordinator?.showAlbumDetails(album: albums[indexPath.row], nsImageCache: nsImageCache)
     }
     
     

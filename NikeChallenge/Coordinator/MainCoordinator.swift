@@ -18,12 +18,12 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = AlbumListViewController()
+        let vc = AlbumsViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func displayDetails(album: Album, nsImageCache: NSCache<NSString, UIImage>) {
+    func showAlbumDetails(album: Album, nsImageCache: NSCache<NSString, UIImage>) {
         let vc = DetailsViewController()
         vc.configure(album: album, nsImageCache: nsImageCache)
         
@@ -31,5 +31,16 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    
+    @objc func deepLinkToItunes(urlAddress: String?) {
+        let numCharactersOfHttp = 8
+        let numCharactersOfResource = 5
+        guard let albumAddress = urlAddress?.dropFirst(numCharactersOfHttp) else { return }
+        let trimmedAddress = String(albumAddress.dropLast(numCharactersOfResource))
+        let itunesLink = "itms://" + trimmedAddress + "itunes"
+        if let urlScheme = URL(string: itunesLink) {
+            if UIApplication.shared.canOpenURL(urlScheme) {
+                UIApplication.shared.open(urlScheme)
+            }
+        }
+    }
 }

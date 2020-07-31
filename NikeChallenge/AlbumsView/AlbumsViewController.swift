@@ -1,5 +1,5 @@
 //
-//  AlbumListViewController.swift
+//  AlbumsViewController.swift
 //  NikeChallenge
 //
 //  Created by Rave BizzDev on 7/21/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class AlbumListViewController: UIViewController {
+class AlbumsViewController: UIViewController {
     
-    var tableView = UITableView()
+    var albumTableView = UITableView()
     var albums = [Album]() {
         didSet {
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.albumTableView.reloadData()
             }
         }
     }
@@ -24,24 +24,25 @@ class AlbumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Top Apple Music Albums"
+        
         configureTableView()
-        fetchData()
+        makeAlbumRequest()
     }
     
     func setTableViewDelegates() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        albumTableView.delegate = self
+        albumTableView.dataSource = self
     }
     
     func configureTableView() {
         setTableViewDelegates()
-        tableView.rowHeight = 140
-        tableView.register(AlbumCell.self, forCellReuseIdentifier: Cells.albumCell)
-        view.addSubview(tableView)
-        tableView.pin(to: view)
+        albumTableView.rowHeight = MyDimensions.cellHeight
+        albumTableView.register(AlbumCell.self, forCellReuseIdentifier: Cells.albumCell)
+        view.addSubview(albumTableView)
+        albumTableView.pin(to: view)
     }
     
-    func fetchData() {
+    func makeAlbumRequest() {
         let albumRequest = AlbumRequest()
         albumRequest.getAlbums { [weak self] result in
             switch result {

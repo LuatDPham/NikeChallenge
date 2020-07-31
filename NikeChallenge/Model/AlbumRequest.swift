@@ -27,8 +27,8 @@ struct AlbumRequest {
             
             do {
                 let decoder = JSONDecoder()
-                let albumResponses = try decoder.decode(Feed.self, from: albumJsonData)
-                let albumDetails = albumResponses.feed.results
+                let feedResponses = try decoder.decode(Feed.self, from: albumJsonData)
+                let albumDetails = feedResponses.feed.results
                 completion(.success(albumDetails))
             } catch {
                 completion(.failure(.cannotDecodeData))
