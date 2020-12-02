@@ -29,6 +29,7 @@
 		1EE7343E24CB083900B70AD3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE7343D24CB083900B70AD3 /* MainCoordinator.swift */; };
 		1EE734E024CDF6EA00B70AD3 /* AlbumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE734DF24CDF6EA00B70AD3 /* AlbumTest.swift */; };
 		1EE734E224CDF93600B70AD3 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EE734E124CDF93600B70AD3 /* mockData.json */; };
+		9E76994425783D270083E3B1 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E76994325783D270083E3B1 /* PullRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1EE7343D24CB083900B70AD3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		1EE734DF24CDF6EA00B70AD3 /* AlbumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTest.swift; sourceTree = "<group>"; };
 		1EE734E124CDF93600B70AD3 /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
+		9E76994325783D270083E3B1 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1E46417624C7981D00F9D617 /* Album.swift */,
+				9E76994325783D270083E3B1 /* PullRequest.swift */,
 				1E46417C24C79E7200F9D617 /* AlbumRequest.swift */,
 			);
 			path = Model;
@@ -307,6 +310,7 @@
 				1E4641C324CA3DDF00F9D617 /* Coordinator.swift in Sources */,
 				1E46417324C78DC800F9D617 /* AlbumsViewController+delegates.swift in Sources */,
 				1E46417D24C79E7200F9D617 /* AlbumRequest.swift in Sources */,
+				9E76994425783D270083E3B1 /* PullRequest.swift in Sources */,
 				1E46416D24C78CAA00F9D617 /* UIView+extensions.swift in Sources */,
 				1E46417124C78D0F00F9D617 /* NSLayoutDimension+constrain.swift in Sources */,
 				1E46417B24C79BA700F9D617 /* Constants.swift in Sources */,
